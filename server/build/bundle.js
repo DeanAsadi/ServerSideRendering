@@ -7004,15 +7004,17 @@ module.exports = memoizeStringOnly;
 var express = __webpack_require__(52);
 var React = __webpack_require__(16);
 var renderToString = __webpack_require__(108).renderToString;
-var Home = __webpack_require__(117);
+var Home = __webpack_require__(117).default;
 var app = express();
 
 app.get("/", function (req, res) {
   var content = renderToString(React.createElement(Home, null));
+  res.send(content);
 });
 
-app.listen(3000, function () {
-  console.log(" App listening on port 3000 ");
+var port = 3000;
+app.listen(port, function () {
+  console.log(" Listening on port 3000 ");
 });
 
 /***/ }),
@@ -22126,7 +22128,7 @@ var Home = function Home() {
   return _react2.default.createElement(
     "div",
     null,
-    " Home component "
+    "Hi, I am Home component."
   );
 };
 
